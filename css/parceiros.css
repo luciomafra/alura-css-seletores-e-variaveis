@@ -1,0 +1,72 @@
+.parceiros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-m);
+    width: 100%;
+    padding: var(--padding-xxl);
+    background-color: var(--cor-neutra-light);
+}
+
+.parceiros-titulo {
+    color: var(--cor-primaria-light);
+    margin-bottom: 1.25rem;
+}
+
+.lista-parceiros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-xxxl);
+
+    @media (max-width: 768px) {
+        gap: var(--gap-xxl);
+    }
+}
+
+.lista-parceiros > div {
+    flex: 1 0 100px; 
+    /* 
+        Esta propriedade condensa, em uma só propriedade, 3 outras propriedades: flex-grow, flex-shrink e flex-basis.
+            flex-grow = Define a proporção em que um item deve crescer dentro de
+                        um container flexível.
+                        > O valor padrão é 0, o que significa que o item não deve crescer .
+                        > Valores negativos não são aceitos .
+                        > Se todos os itens tiverem flex-grow definido em 1, o espaço disponível no contêiner será distribuído igualmente entre todos .
+                        > Se um dos itens tiver o valor de 2, vai ocupar o dobro de espaço no container.
+
+        flex-shrink =   Define o fator de contração (redução do tamanho) dentro de um
+                        container flexível.
+                        > O valor padrão é 1, o que permite que os itens sejam reduzidos para caber no contêiner
+                        > O valor 0 não permite que os itens diminuam
+                        > Um item com shrink 3 diminuirá 3 vezes mais que um item com 1.
+        flex-basis =    Define o tamanho inicial de um elemento flexível (base
+                        flexível).
+                        > O valor inicial de flex-basis é auto, o que significa que o navegador considera se os itens têm o mesmo tamanho.
+                        > Dependendo da direção do eixo principal (horizontal ou vertical), a propriedade define a largura ou altura mínima do elemento.
+                        > É possível determinar uma largura específica como referência e todos os elementos serão redimensionados a partir dela.
+                        > Se passarmos 0, ele terá uma base em branco, então não aparecerá nada.
+    */
+    width: 100%;
+}
+
+.lista-parceiros > div > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+/* Imagens de Números Ímpares*/
+.lista-parceiros > div:nth-child(odd):hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--cor-primaria-box-shadow);
+}
+
+/* Imagens de Números Pares*/
+.lista-parceiros > div:nth-child(even):hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--cor-secundaria-box-shadow);
+}
